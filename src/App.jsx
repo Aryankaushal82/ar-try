@@ -67,7 +67,7 @@ function QRCodeGenerator({ url }) {
 }
 
 export default function App() {
-  const [url, setUrl] = useState('https://your-app-url.com'); // Replace with your hosted URL
+  const [url, setUrl] = useState('https://zippy-tartufo-ab18ef.netlify.app'); // Replace with your hosted URL
 
   return (
     <div>
