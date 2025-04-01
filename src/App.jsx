@@ -3,13 +3,16 @@ import { Canvas } from '@react-three/fiber';
 import { useLoader } from '@react-three/fiber';
 import { OrbitControls, Html, Environment, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
-import { QRCode } from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 function Model() {
   const [model, setModel] = useState(null);
-  const gltf = useLoader(THREE.GLTFLoader, './robot.glb');
+  const gltf = useLoader(GLTFLoader, './robot.glb');
+  console.log(gltf)
   
   useEffect(() => {
+    console.log(gltf.scene|| "nhi hai")
     setModel(gltf.scene);
   }, [gltf]);
 
@@ -57,7 +60,7 @@ function ARScene() {
 function QRCodeGenerator({ url }) {
   return (
     <div className="qr-container">
-      <QRCode value={url} size={256} />
+      <QRCodeSVG value={url} size={256} />
       <p>Scan to view AR scene!</p>
     </div>
   );
